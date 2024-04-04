@@ -1,13 +1,12 @@
-import Navbar from "../Components/defaultnavbar";
-
-export default function About() {
+import transition from "../Components/Transition";
+function About() {
   return (
-    <>
-      <Navbar />
-      <div className="flex items-center justify-center">
-        <div>About</div>
-      </div>
-    </>
+    <div>
+      <h1 className="w-4/5 absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-center text-[10vw] font-medium leading-none uppercase">
+        About
+      </h1>
+    </div>
   );
 }
- 
+
+export default transition(About);
