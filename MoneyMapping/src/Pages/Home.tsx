@@ -1,67 +1,49 @@
-// import transition from "../Components/Transition";
-// import ads from "../../public/ads.gif";
-
-// function Home() {
-//   return (
-//     <div className="h-screen flex justify-center items-center">
-//       hello
-//       <div className="absolute top-40 right-0">
-//         <img src={ads} className="w-auto "></img>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default transition(Home);
-
-import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import transition from "../Components/Transition";
-import ads from "../../public/ads.gif";
+import "../Styles/googleFont.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowAltCircleRight,
+  faArrowAltCircleDown,
+} from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
-  const [showAds, setShowAds] = useState(false);
-
-  useEffect(() => {
-    // Delay showing the ads for 3 seconds (adjust as needed)
-    const delay = setTimeout(() => {
-      setShowAds(true);
-    }, 4000);
-
-    // Cleanup function to clear the timeout if component unmounts before the delay completes
-    return () => clearTimeout(delay);
-  }, []); // Empty dependency array ensures the effect runs only once after initial render
-
   return (
-    <div className="h-screen flex justify-center items-center">
-      <h1 className="w-4/5 absolute top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 text-center text-[10vw] font-medium leading-none uppercase">
-        Home
-      </h1>
-      {showAds && (
-        <div className="absolute top-40 right-0">
-          <img src={ads} className="w-auto z-100" alt="Advertisement" />
-          <button
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.href = "http://google.blog";
-            }}
-            className="absolute p-1 bg-black top-[13rem] right-[9.5rem] min-w-[8.85rem] min-h-[2.5rem] bg-gradient-to-b from-white to-[#adadad]"
-          >
-            <strong>Of Course</strong>
+    <>
+      <div className="h-full w-full">
+        <div className="fixed inset-0 -z-10 h-full w-full bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)]"></div>
+      </div>
+      <div className="w-full h-screen flex flex-col items-center justify-center">
+        <p className="text-center text-[5vh] md:text-[5vw] oxygen-light">
+          <strong>
+            Empower Your <span className="text-teal-500">Finances</span> with{" "}
+            <span className="text-indigo-500 font-serif"> MoneyMap</span>
+          </strong>
+        </p>
+        <p className="px-[8vw] text-justify font-mono text-[2vh] md:text-[1.5vw]">
+          MoneyMap is your ultimate financial companion, designed to streamline
+          your money management tasks effortlessly. With MoneyMap, you can take
+          control of your finances like never before. Easily add incomes,
+          savings, loans, subscriptions, and transactions with just a few
+          clicks. Gain valuable insights into your spending habits and financial
+          health with comprehensive budget overviews and intuitive charts. Start
+          your journey towards financial freedom today with MoneyMap. For morw
+          information{" "}
+          <a className="hover:text-green-700 duration-100" href="">
+            <FontAwesomeIcon icon={faArrowAltCircleDown} />
+          </a>
+        </p>
+        <Link to={"/Login"}>
+          <button className="mt-8 p-2 text-2xl bg-emerald-300 rounded-lg hover:scale-125 duration-200 hover:-rotate-6 hover:bg-emerald-700 hover:text-white group">
+            Get started{" "}
+            <FontAwesomeIcon
+              className="text-amber-800 group-hover:text-white duration-200"
+              icon={faArrowAltCircleRight}
+            />{" "}
           </button>
-          <button
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.href = "https://google.uk/";
-            }}
-            className="absolute p-1 bg-black top-[13rem] right-[0.3rem] min-w-[8.85rem] min-h-[2.5rem] bg-gradient-to-b from-white to-[#adadad]"
-          >
-            <strong>Maybe</strong>
-          </button>
-        </div>
-      )}
-    </div>
+        </Link>
+      </div>
+    </>
   );
 }
 

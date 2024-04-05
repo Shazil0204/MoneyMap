@@ -27,9 +27,9 @@ export default function DefaultNavbar() {
       <div className="p-5 bg-gray-200 fixed w-full rounded-b-lg drop-shadow-2xl z-10">
         <div className="flex justify-between">
           <Link to={"/"} onClick={toggleNavOptions}>
-            <div className="m-2 xl:px-10 flex gap-2 sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-3xl mr-[1vw] rounded-tr-2xl hover:rounded-none outline-dashed outline-4 bg-yellow-300 p-2 text-green-700 cursor-pointer hover:translate-x-6 -rotate-12 hover:rotate-0 duration-300">
+            <div className="m-2 xl:px-10 flex gap-2 sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-3xl mr-[1vw] outline-dashed outline-4 bg-yellow-300 p-2 text-green-700 cursor-pointer">
               <FontAwesomeIcon icon={faCoins} className="mt-1" />
-              <p className="pacifico-regular font-extrabold">Money Map</p>
+              <p className="pacifico-regular font-extrabold">MoneyMap</p>
             </div>
           </Link>
           {!navOptionsVisible && (
@@ -56,8 +56,7 @@ export default function DefaultNavbar() {
                   nav.linkto === location.pathname
                     ? "bg-blue-300 -rotate-12 outline-2 outline-dotted outline-indigo-500"
                     : "bg-gray-300 rotate-3"
-                }`
-              }
+                }`}
                 onClick={toggleNavOptions}
               >
                 {nav.text}
@@ -76,7 +75,7 @@ export default function DefaultNavbar() {
           </ul>
         </div>
       </div>
-      <div className="p-16"></div>
+      {/* <div className="p-16"></div> */}
     </>
   );
 }
